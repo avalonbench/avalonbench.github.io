@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="AvalonBench -- a comprehensive game environment tailored for evaluating multi-agent LLM Agents.">
+  <meta name="keywords" content="LLM Agents, deception, cooperation, Avalon, AvalonBench">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AvalonBench: Evaluating LLMs Playing the Game of Avalon</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- TODO: add favicon -->
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="textsc">AvalonBench</span>: Evaluating LLMs Playing the Game of Avalon</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jonathanmli.github.io/">Jonathan Light</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/HenryCai11">Min Cai</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sincerass.github.io/">Sheng Shen</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://acbull.github.io/">Ziniu Hu</a><sup>4</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Rensselaer Polytechnic Institute,</span>
+            <span class="author-block"><sup>2</sup>Shenzhen University</span>
+            <span class="author-block"><sup>3</sup>University of California, Berkeley</span>
+            <span class="author-block"><sup>4</sup>California Institute of Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2310.05036.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2310.05036.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/jonathanmli/Avalon-LLM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODO: put a vedio clip here -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        GPT-3.5-turbo playing against rule-based bots in <span class="textsc">AvalonBench</span>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we explore the potential of Large Language Models (LLMs) Agents in
+            playing the strategic social deduction game, Resistance Avalon.
+          </p>
+          <p>  
+            Players in Avalon
+            are challenged not only to make informed decisions based on dynamically evolving
+            game phases, but also to engage in discussions where they must deceive, deduce,
+            and negotiate with other players. These characteristics make Avalon a compelling
+            test-bed to study the decision-making and language-processing capabilities of
+            LLM Agents. To facilitate research in this line, we introduce <span class="textsc">AvalonBench</span> - a
+            comprehensive game environment tailored for evaluating multi-agent LLM Agents.
+            This benchmark incorporates: (1) a game environment for Avalon, (2) rule-based
+            bots as baseline opponents, and (3) ReAct-style LLM agents with tailored prompts
+            for each role. Notably, our evaluations based on AVALONBENCH highlight a clear
+            capability gap. For instance, models like ChatGPT playing good-role got a win rate
+            of 22.2% against rule-based bots playing evil, while good-role bot achieves 38.2%
+            win rate in the same setting.
+          </p>
+          <p>  
+            We envision <span class="textsc">AvalonBench</span> could be a good test-bed
+            for developing more advanced LLMs (with self-playing) and agent frameworks
+            that can effectively model the layered complexities of such game environments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Initial Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Initial Results</h2>
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4">LLMs Play Against Baseline Bots</h3>
+          <p>
+            Here are the results of LLMs playing against baseline bots.
+          </p>
+          <img src="./static/images/sinlge_results.png" alt="initial results">
+          <h3 class="title is-4">Multi-LLMs Self-Play</h3>
+          <p>
+            We also let LLMs playing against each other. Evil has an 8:2 advantage over Good, which is similar to the stats of rookie human players! Here are also some examples of discussion under this setting.
+          </p>
+          <img src="./static/images/discussion1.png" alt="discussion1">
+          <img src="./static/images/discussion2.png" alt="discussion2">
+        </div>
+      </div>
+    </div>
+    <!--/ Initial Results. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Related Links (AgentBench). -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Our code is based on <a href="https://llmbench.ai/agent">AgentBench</a>, the first benchmark designed to evaluate LLM-as-Agent across a diverse spectrum of different environments.
+          </p>
+          <p>
+            <span class="textsc">AvalonBench</span> has now been included in their benchmark. See <a href="https://github.com/THUDM/AgentBench/tree/main/src/server/tasks/avalon">here</a> for more details.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Related Links (AgentBench). -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+      light2023from,
+      title={From Text to Tactic: Evaluating {LLM}s Playing the Game of Avalon},
+      author={Jonathan Light and Min Cai and Sheng Shen and Ziniu Hu},
+      booktitle={NeurIPS 2023 Foundation Models for Decision Making Workshop},
+      year={2023},
+      url={https://openreview.net/forum?id=ltUrSryS0K}
+  }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2310.05036.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/jonathanmli/Avalon-LLM" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            We are using <a
+              href="https://nerfies.github.io/">Nerfies project page</a> as our template. Thanks for their great work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
