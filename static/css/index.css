@@ -17,6 +17,14 @@ body {
   font-variant: small-caps;
 }
 
+.texttt {
+  font-family: monospace;
+}
+
+.hl {
+  background-color: #ffbf59;
+}
+
 
 .teaser .hero-body {
   padding-top: 0;

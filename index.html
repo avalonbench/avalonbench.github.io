@@ -140,12 +140,26 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        GPT-3.5-turbo playing against rule-based bots in <span class="textsc">AvalonBench</span>
+        <span>GPT-3.5-turbo</span>🤖 playing against rule-based bots in <span class="textsc">AvalonBench</span>
       </h2>
     </div>
   </div>
 </section>
 
+<!-- TODO: put a vedio clip here -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/single_llm_gpt_4.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span>GPT-4-turbo</span>🤖 playing against rule-based bots in <span class="textsc">AvalonBench</span>
+      </h2>
+    </div>
+  </div>
+</section>
 
 
 <section class="section">
@@ -156,7 +170,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we explore the potential of Large Language Models (LLMs) Agents in
+            We explore the potential of Large Language Models (LLMs) Agents in
             playing the strategic social deduction game, Resistance Avalon.
           </p>
           <p>  
@@ -206,6 +220,50 @@
           </p>
           <img src="./static/images/discussion1.png" alt="discussion1">
           <img src="./static/images/discussion2.png" alt="discussion2">
+
+          <!-- v0.2 results -->
+          <h3 class="title is-4">Initial Results with New Codebase</h3>
+          <p>
+            We have updated our <a href="https://github.com/jonathanmli/Avalon-LLM/tree/v0.2">code</a> with a new version of AgentBench (v0.2). Here are the results of LLMs playing against baseline bots.
+          </p>
+          <pre>
+            <code>{
+              "total": 20,
+              "validation": {
+                  "running": 0.0,
+                  "completed": 0.95,
+                  "agent context limit": 0.0,
+                  "agent validation failed": 0.05,
+              },
+              "custom": {
+                  "Win rate of Player 0": 0.15,
+                  "Avg deduction acc of Player 0": 0.5399999999999998,
+                  "Valid number of games": 19
+              }
+          }</code>
+          </pre>
+          <h5 class="subtitle has-text-centered">
+            Results of <span>GPT-3.5-turbo</span>🤖 playing against rule-based bots
+          </h5>
+          <pre>
+            <code>{
+              "total": 20,
+              "validation": {
+                  "running": 0.0,
+                  "completed": 1.0,
+                  "agent context limit": 0.0,
+                  "agent validation failed": 0.0,
+              },
+              "custom": {
+                  "Win rate of Player 0": 0.2,
+                  "Avg deduction acc of Player 0": 0.55,
+                  "Valid number of games": 20
+              }
+          }</code>
+          </pre>
+          <h5 class="subtitle has-text-centered">
+            Results of <span>GPT-4-turbo</span>🤖 playing against rule-based bots
+          </h5>
         </div>
       </div>
     </div>
