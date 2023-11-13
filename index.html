@@ -227,39 +227,41 @@
             We have updated our <a href="https://github.com/jonathanmli/Avalon-LLM/tree/v0.2">code</a> with a new version of AgentBench (v0.2). Here are the results of LLMs playing against baseline bots.
           </p>
           <pre>
-            <code>{
-              "total": 20,
-              "validation": {
-                  "running": 0.0,
-                  "completed": 0.95,
-                  "agent context limit": 0.0,
-                  "agent validation failed": 0.05,
-              },
-              "custom": {
-                  "Win rate of Player 0": 0.15,
-                  "Avg deduction acc of Player 0": 0.5399999999999998,
-                  "Valid number of games": 19
-              }
-          }</code>
+<code>{
+    "total": 20,
+    "validation": {
+        "running": 0.0,
+        "completed": 0.95,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.05,
+    },
+    "custom": {
+        "Win rate of Player 0": 0.15,
+        "Avg deduction acc of Player 0": 0.5399999999999998,
+        "Valid number of games": 19,
+        "Average time cost": "1:58"
+    }
+}</code>
           </pre>
           <h5 class="subtitle has-text-centered">
             Results of <span>GPT-3.5-turbo</span>🤖 playing against rule-based bots
           </h5>
           <pre>
-            <code>{
-              "total": 20,
-              "validation": {
-                  "running": 0.0,
-                  "completed": 1.0,
-                  "agent context limit": 0.0,
-                  "agent validation failed": 0.0,
-              },
-              "custom": {
-                  "Win rate of Player 0": 0.2,
-                  "Avg deduction acc of Player 0": 0.55,
-                  "Valid number of games": 20
-              }
-          }</code>
+<code>{
+    "total": 20,
+    "validation": {
+        "running": 0.0,
+        "completed": 1.0,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.0,
+    },
+    "custom": {
+        "Win rate of Player 0": 0.2,
+        "Avg deduction acc of Player 0": 0.55,
+        "Valid number of games": 20,
+        "Average time cost": "10:36"
+    }
+}</code>
           </pre>
           <h5 class="subtitle has-text-centered">
             Results of <span>GPT-4-turbo</span>🤖 playing against rule-based bots
